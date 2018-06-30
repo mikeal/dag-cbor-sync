@@ -36,5 +36,16 @@
       "babel",
       "standard"
     ]
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeal/dag-cbor-sync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mikeal/dag-cbor-sync/issues"
+  },
+  "homepage": "https://github.com/mikeal/dag-cbor-sync#readme"
 }
