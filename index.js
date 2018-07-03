@@ -2,8 +2,6 @@ const cbor = require('borc')
 const CID = require('cids')
 const isCircular = require('is-circular')
 
-const sha2 = b => crypto.createHash('sha256').update(b).digest()
-
 const CID_CBOR_TAG = 42
 
 /* start copy from exisisting dag-cbor */
@@ -69,7 +67,7 @@ function replaceCIDbyTAG (dagNode) {
 /* end copy from existing dag-cbor */
 
 module.exports = (maxsize) => {
-  _decoder = new cbor.Decoder({
+  let _decoder = new cbor.Decoder({
     tags: {
       [CID_CBOR_TAG]: (val) => {
         val = val.slice(1)
