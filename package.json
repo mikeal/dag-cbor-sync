@@ -1,6 +1,6 @@
 {
   "name": "dag-cbor-sync",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Synchronous serialize/deserialize for IPLD dag-cbor.",
   "main": "index.js",
   "scripts": {
