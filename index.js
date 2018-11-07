@@ -99,7 +99,7 @@ module.exports = (maxsize) => {
   const mkblock = async (obj, algo = 'sha2-256') => {
     let buff = serialize(obj)
     let multihash = await phash(buff, algo)
-    let cid = new CID(1, 'dag-json', multihash)
+    let cid = new CID(1, 'dag-cbor', multihash)
     return new Block(buff, cid)
   }
 
