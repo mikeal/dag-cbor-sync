@@ -1,6 +1,10 @@
 const cbor = require('borc')
 const CID = require('cids')
+const Block = require('ipfs-block')
 const isCircular = require('is-circular')
+const multihashes = require('multihashing-async')
+const promisify = require('util').promisify
+const phash = promisify(multihashes)
 
 const CID_CBOR_TAG = 42
 
@@ -84,13 +88,22 @@ module.exports = (maxsize) => {
     size: maxsize
   })
 
+  const deserialize = (buffer) => {
+    return _decoder.decodeFirst(buffer)
+  }
+  const serialize = (dagNode) => {
+    let dagNodeTagged = replaceCIDbyTAG(dagNode)
+    return cbor.encode(dagNodeTagged)
+  }
+
+  const mkblock = async (obj, algo = 'sha2-256') => {
+    let buff = serialize(obj)
+    let multihash = await phash(buff, algo)
+    let cid = new CID(1, 'dag-json', multihash)
+    return new Block(buff, cid)
+  }
+
   return {
-    deserialize: (buffer) => {
-      return _decoder.decodeFirst(buffer)
-    },
-    serialize: (dagNode) => {
-      let dagNodeTagged = replaceCIDbyTAG(dagNode)
-      return cbor.encode(dagNodeTagged)
-    }
+    serialize, deserialize, mkblock
   }
 }
