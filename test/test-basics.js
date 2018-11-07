@@ -1,5 +1,6 @@
 const {test} = require('tap')
 const cbor = require('../')
+const CID = require('cids')
 
 const defaults = cbor()
 
@@ -12,13 +13,13 @@ test('empty', t => {
 test('links', t => {
   t.plan(2)
   let obj = {
-    testobj: {'/': 'zdpuAkv7jA671owT26AnJiFXG9usHmCAW6MTzpwFJw46X1PLG'},
+    testobj: new CID('zdpuAkv7jA671owT26AnJiFXG9usHmCAW6MTzpwFJw46X1PLG'),
     testarray: [
-      {'/': 'zdpuAkv7jA671owT26AnJiFXG9usHmCAW6MTzpwFJw46X1PLG'}
+      new CID('zdpuAkv7jA671owT26AnJiFXG9usHmCAW6MTzpwFJw46X1PLG')
     ]
   }
   let buffer = defaults.serialize(obj)
   let output = defaults.deserialize(buffer)
-  t.ok(Buffer.isBuffer(output.testobj['/']))
-  t.ok(Buffer.isBuffer(output.testarray[0]['/']))
+  t.ok(CID.isCID(output.testobj))
+  t.ok(CID.isCID(output.testarray[0]))
 })
