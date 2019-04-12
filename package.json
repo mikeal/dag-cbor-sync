@@ -14,7 +14,7 @@
     "cids": "^0.5.3",
     "ipfs-block": "^0.8.0",
     "is-circular": "^1.0.1",
-    "multihashing-async": "^0.5.1"
+    "multihashing-async": "^0.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.5",
