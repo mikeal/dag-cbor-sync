@@ -11,7 +11,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "borc": "^2.0.3",
-    "cids": "^0.5.3",
+    "cids": "^0.7.0",
     "ipfs-block": "^0.8.0",
     "is-circular": "^1.0.1",
     "multihashing-async": "^0.5.1"
