@@ -2,9 +2,7 @@ const cbor = require('borc')
 const CID = require('cids')
 const Block = require('ipfs-block')
 const isCircular = require('is-circular')
-const multihashes = require('multihashing-async')
-const promisify = require('util').promisify
-const phash = promisify(multihashes)
+const phash = require('multihashing-async')
 
 const CID_CBOR_TAG = 42
 
