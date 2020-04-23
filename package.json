@@ -10,9 +10,9 @@
   "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (http://www.mikealrogers.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "borc": "^2.0.3",
-    "cids": "^0.7.1",
-    "ipfs-block": "^0.8.0",
+    "borc": "^2.1.2",
+    "cids": "^0.8.0",
+    "ipld-block": "^0.9.1",
     "is-circular": "^1.0.1",
     "multihashing-async": "^0.8.0"
   },
