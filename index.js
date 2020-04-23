@@ -1,6 +1,6 @@
 const cbor = require('borc')
 const CID = require('cids')
-const Block = require('ipfs-block')
+const Block = require('ipld-block')
 const isCircular = require('is-circular')
 const phash = require('multihashing-async')
 
